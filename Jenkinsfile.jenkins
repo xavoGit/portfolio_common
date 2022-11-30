@@ -22,6 +22,7 @@ pipeline {
       steps {
         withMaven {
           sh "echo 'building from: ' \$(hostname)"
+	  sh "mvn -version"
           sh "mvn clean package -Dmaven.test.failure.ignore=true"
         }
       }
