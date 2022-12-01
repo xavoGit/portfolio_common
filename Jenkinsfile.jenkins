@@ -28,6 +28,14 @@ pipeline {
         }
       }
 	}
+    stage('Trigger modules') {
+      steps{
+	    echo "triggering portfolio transactions job"
+	    build job: 'transactions'  
+	    echo "triggering portfolio wallet job"
+	    build job: 'wallet' 
+      }
+	}
   }
   post {
     always {
